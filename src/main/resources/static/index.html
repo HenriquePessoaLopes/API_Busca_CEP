@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Informe um CEP e descubra a cidade, o estado e o endereço, direto da API ViaCEP.">
+  <title>Busca CEP</title>
+  <link rel="icon" href="icone.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="rodovia">
+    <div class="rodovia__poste rodovia__poste--esq" aria-hidden="true"></div>
+    <div class="rodovia__poste rodovia__poste--dir" aria-hidden="true"></div>
+    <div class="portico">
+      <p class="portico__sigla">CEP</p>
+      <div>
+        <h1>Busca CEP</h1>
+        <p class="portico__texto">Digite o CEP e siga viagem até o endereço.</p>
+      </div>
+    </div>
+    <div class="pista" id="pista" aria-hidden="true">
+      <div class="pista__faixa"></div>
+    </div>
+  </header>
+
+  <main class="pagina">
+    <section class="painel" aria-labelledby="titulo-busca">
+      <h2 id="titulo-busca" class="visualmente-oculto">Buscar CEP</h2>
+      <form id="form" novalidate autocomplete="off">
+        <label for="cep" class="rotulo">Para onde vamos?</label>
+        <div class="campo">
+          <input id="cep" name="cep" type="text" inputmode="numeric" maxlength="9" placeholder="00000-000" aria-describedby="dica" autofocus>
+          <button type="submit" class="botao" id="buscar">Buscar</button>
+        </div>
+        <p id="dica" class="dica">Aceita com ou sem hífen, por exemplo 55650-000.</p>
+      </form>
+
+      <div id="paradas" class="paradas" hidden>
+        <p class="paradas__titulo">Últimas paradas</p>
+        <ul id="lista-paradas" class="paradas__lista"></ul>
+      </div>
+    </section>
+
+    <section id="resultado" class="resultado" aria-live="polite"></section>
+  </main>
+
+  <footer class="rodape">
+    <p>Dados da API pública <a href="https://viacep.com.br" target="_blank" rel="noopener noreferrer">ViaCEP</a>.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
